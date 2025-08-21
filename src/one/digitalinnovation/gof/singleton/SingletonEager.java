@@ -1,19 +1,18 @@
 package one.digitalinnovation.gof.singleton;
 
-/**
- * Singleton "apressado".
- * 
- * @author falvojr
- */
 public class SingletonEager {
 
-	private static SingletonEager instancia = new SingletonEager();
-	
-	private SingletonEager() {
-		super();
-	}
-	
-	public static SingletonEager getInstancia() {
-		return instancia;
-	}
+    private static final SingletonEager INSTANCIA = new SingletonEager();
+
+    private SingletonEager() {
+    }
+
+    public static SingletonEager getInstancia() {
+        return INSTANCIA;
+    }
+
+    @Override
+    public String toString() {
+        return "Instância SingletonEager: " + INSTANCIA.hashCode();
+    }
 }

@@ -1,14 +1,20 @@
 package one.digitalinnovation.gof.strategy;
 
-public class Robo {
-	
-	private Comportamento comportamento;
+import java.util.Objects;
 
-	public void setComportamento(Comportamento comportamento) {
-		this.comportamento = comportamento;
-	}
-	
-	public void mover() {
-		comportamento.mover();
-	}
+public class Robo {
+
+    private Comportamento comportamento;
+
+    public void setComportamento(Comportamento comportamento) {
+        this.comportamento = Objects.requireNonNull(comportamento, "Comportamento não pode ser nulo");
+    }
+
+    public void mover() {
+        if (comportamento == null) {
+            System.out.println("[ERRO] Nenhum comportamento definido para o robô!");
+            return;
+        }
+        comportamento.mover();
+    }
 }
